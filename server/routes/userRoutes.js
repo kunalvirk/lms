@@ -80,7 +80,7 @@ router.post('/user/signup', (req, res) => {
 router.post('/user/login', (req, res) => {
     User.findOne({'email': req.body.email}, (error, user) => {
         if (!user) {
-            return res.status(500).json({isAuth : false, message : 'User not found, check your email',error : error})
+            return res.json({isAuth : false, message : 'User not found, check your email',error : error})
         }
             user.comparePassword(req.body.password,(err,isMatch)=>{
                 if(!isMatch) return res.json({
@@ -126,9 +126,10 @@ router.get('/user/logout', auth, (req, res) => {
 
 // Authenticate a user
 router.get('/user/auth',auth, (req,res) => {
+    // console.log("auth req",req.user)
     res.status(200).json({
         isAuth : true,
-        id : user._id,
+        id : req.user._id,
         email : req.user.email,
         userType : req.user.userType,
         reportingManagers : req.user.reportingManagers
