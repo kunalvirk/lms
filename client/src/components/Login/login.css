@@ -1,0 +1,9 @@
+.loginHeader {
+    position: absolute;
+    top: 0px;
+    z-index: 10;
+    width: 100%;
+    padding: 20px;
+}
+.brand {align-items: flex-start;}
+.brand-img {max-width: 200px; height: auto; display: block;}

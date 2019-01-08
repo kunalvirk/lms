@@ -1,0 +1,44 @@
+.auth-form-wrap {
+    padding: 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 100vh;
+}
+.auth-form {
+    margin: 0 auto;
+    max-width: 55%;
+}
+.mb-30 {margin-bottom: 30px;}
+.loginForm .form-control {
+    color: #324148;
+    border-width: 2px;
+    border-color: #eaecec;
+    padding: .375rem .75rem;
+    height: calc(2.25rem + 4px);
+    border-top-right-radius: .25rem;
+    border-bottom-right-radius: .25rem;
+}
+.mb-25 {
+    margin-bottom: 25px !important;
+}
+.custom-checkbox label {
+    font-size: 14px;
+    margin-top: 5px;
+}
+.forgotPasswordTxt {
+    font-size: 14px;
+    color: #5e7d8a;
+    margin-top: 15px;
+}
+.has-error {
+    text-align: center;
+    background-color: #f00;
+    color: #fff;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
