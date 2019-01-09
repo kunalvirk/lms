@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {checkAuth} from '../actions/userActions';
 import { connect } from 'react-redux';
+import {Redirect} from 'react-router-dom';
 
 import './loader.css';
 
@@ -8,7 +9,8 @@ export default function(ComposedComponent) {
     class Authenticate extends Component {
     
         state = {
-            loading : true
+            loading : true,
+            redirect : false
         }
 
         componentWillMount() {
@@ -16,26 +18,26 @@ export default function(ComposedComponent) {
         }
 
         componentWillReceiveProps(nextProps) {
-            this.setState({
-                loading : false
-            })
-            console.log("Next props", nextProps)
-            if (!nextProps.user.isAuth) { //If not authorised
+            // console.log("Next props", nextProps)
+            if (!nextProps.user.login.isAuth) { //If not authorised
                 this.props.history.push('/')
             } else { //If authorised
-                this.props.history.push(this.props.match.path)
+                this.setState({
+                    loading : false,
+                    redirect : true
+                })
             }
         }
 
         render() {
-            console.log("Auth FE log ", this.props)
+            // console.log("Auth FE log state", this.state)
             if (this.state.loading) {
                 return <div className="preloader-it">
                             <div className="loader-pendulums"></div>
                         </div>
             }
             return (
-                <ComposedComponent {...this.props} />
+                this.state.redirect ? <ComposedComponent {...this.props} /> : <Redirect to="/" />
             )
         }
     }

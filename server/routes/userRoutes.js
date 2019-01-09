@@ -132,7 +132,9 @@ router.get('/user/auth',auth, (req,res) => {
         id : req.user._id,
         email : req.user.email,
         userType : req.user.userType,
-        reportingManagers : req.user.reportingManagers
+        reportingManagers : req.user.reportingManagers,
+        firstName : req.user.firstName,
+        lastName : req.user.lastName
     })
 })
 

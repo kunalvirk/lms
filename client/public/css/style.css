@@ -56,3 +56,6 @@ table {
 .bg-trans-dark-50 {
     background: rgba(26, 34, 37, 0.8);
 }
+
+.navbar-brand {cursor: pointer;}
+.navbar-brand > img {max-width: 200px; height: auto; display: block;}
